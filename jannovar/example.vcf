@@ -1,0 +1,72 @@
+##fileformat=VCFv4.1
+##FILTER=<ID=PASS,Description="All filters passed">
+##FORMAT=<ID=GQX,Number=1,Type=Integer,Description="Empirically calibrated variant quality score for variant sites, otherwise Minimum of {Genotype quality assuming variant position,Genotype quality assuming non-variant position}">
+##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
+##FORMAT=<ID=GQ,Number=1,Type=Float,Description="Genotype Quality">
+##FORMAT=<ID=DP,Number=1,Type=Integer,Description="Filtered basecall depth used for site genotyping">
+##FORMAT=<ID=DPF,Number=1,Type=Integer,Description="Basecalls filtered from input prior to site genotyping">
+##FORMAT=<ID=AD,Number=.,Type=Integer,Description="Allelic depths for the ref and alt alleles in the order listed. For indels this value only includes reads which confidently support each allele (posterior prob 0.999 or higher that read contains indicated allele vs all other intersecting indel alleles)">
+##FORMAT=<ID=DPI,Number=1,Type=Integer,Description="Read depth associated with indel, taken from the site preceding the indel.">
+##INFO=<ID=TI,Number=.,Type=String,Description="Transcript ID">
+##INFO=<ID=GI,Number=.,Type=String,Description="Gene ID">
+##INFO=<ID=EXON,Number=0,Type=Flag,Description="Exon Region">
+##INFO=<ID=FC,Number=.,Type=String,Description="Functional Consequence">
+##INFO=<ID=END,Number=1,Type=Integer,Description="End position of the region described in this record">
+##INFO=<ID=BLOCKAVG_min30p3a,Number=0,Type=Flag,Description="Non-variant site block. All sites in a block are constrained to be non-variant, have the same filter value, and have all sample values in range [x,y], y <= max(x+3,(x*1.3)). All printed site block sample values are the minimum observed in the region spanned by the block">
+##INFO=<ID=SNVSB,Number=1,Type=Float,Description="SNV site strand bias">
+##INFO=<ID=SNVHPOL,Number=1,Type=Integer,Description="SNV contextual homopolymer length">
+##INFO=<ID=CIGAR,Number=A,Type=String,Description="CIGAR alignment for each alternate indel allele">
+##INFO=<ID=RU,Number=A,Type=String,Description="Smallest repeating sequence unit extended or contracted in the indel allele relative to the reference. RUs are not reported if longer than 20 bases.">
+##INFO=<ID=REFREP,Number=A,Type=Integer,Description="Number of times RU is repeated in reference.">
+##INFO=<ID=IDREP,Number=A,Type=Integer,Description="Number of times RU is repeated in indel allele.">
+##FILTER=<ID=LowDP,Description="Depth (DP) is less than 1">
+##FILTER=<ID=OffTarget,Description="Variant is not on target">
+##FILTER=<ID=IndelConflict,Description="Locus is in region with conflicting indel calls">
+##FILTER=<ID=SiteConflict,Description="Site genotype conflicts with proximal indel call. This is typically a heterozygous SNV call made inside of a heterozygous deletion">
+##FILTER=<ID=LowGQX,Description="Locus GQX is less than 30 or not present">
+##FILTER=<ID=HighDPFRatio,Description="The fraction of basecalls filtered out at a site is greater than 0.4">
+##FILTER=<ID=LowGQXHetSNP,Description="Locus quality is less than 15 for het SNP">
+##FILTER=<ID=LowGQXHomSNP,Description="Locus GQX is less than 17 for hom SNP">
+##FILTER=<ID=LowGQXHetIns,Description="Locus GQX is less than 6 for het insertion">
+##FILTER=<ID=LowGQXHomIns,Description="Locus GQX is less than 6 for hom insertion">
+##FILTER=<ID=LowGQXHetDel,Description="Locus GQX is less than 6 for hom deletion">
+##annotator=MARS
+##fileDate=20221007
+##source=IsaacVariantCaller
+##source_version=2.1.4.2
+##startTime=Fri Oct 07 18:44:47 2022
+##cmdline=C:\Illumina\Local Run Manager\Modules\DNAEnrichmentWorkflow\2.0.1.5\Workflows\EnrichmentWorker\starling2.exe --gvcf-file - --gvcf-min-gqx 30 --gvcf-max-snv-strand-bias 10 --gvcf-max-indel-ref-repeat -1 -min-qscore 17 -bam-file D:\Illumina\NextSeq Control Software Temp\220921_NDX550923_RUO_0009_AHYCYHBGXK\Alignment_10\20221007_115827\32726314_S5.bam -samtools-reference C:\Illumina\Genomes\Homo_sapiens\UCSC\hg19\Sequence\WholeGenomeFasta\genome.fa -bam-seq-name chrM -report-range-begin 1 -report-range-end 16571 --minor-allele-bed-file C:\Illumina\Genomes\Homo_sapiens\UCSC\hg19\Annotation\RefMinorAllele.bed -clobber -min-single-align-score 20 -min-paired-align-score 20 -bsnp-ssd-no-mismatch 0.35 -bsnp-ssd-one-mismatch 0.6 -min-vexp 0.25 -max-window-mismatch 2 20 -max-indel-size 50 -genome-size 2858674665 --calibration-model-file C:\Illumina\Local Run Manager\Modules\DNAEnrichmentWorkflow\2.0.1.5\Workflows\EnrichmentWorker\model.json --scoring-model QScoreHpolmodel
+##reference=file://C:\Illumina\Genomes\Homo_sapiens\UCSC\hg19\Sequence\WholeGenomeFasta\genome.fa
+##contig=<ID=chrM,length=16571>
+##contig=<ID=chr1,length=249250621>
+##contig=<ID=chr2,length=243199373>
+##contig=<ID=chr3,length=198022430>
+##contig=<ID=chr4,length=191154276>
+##contig=<ID=chr5,length=180915260>
+##contig=<ID=chr6,length=171115067>
+##contig=<ID=chr7,length=159138663>
+##contig=<ID=chr8,length=146364022>
+##contig=<ID=chr9,length=141213431>
+##contig=<ID=chr10,length=135534747>
+##contig=<ID=chr11,length=135006516>
+##contig=<ID=chr12,length=133851895>
+##contig=<ID=chr13,length=115169878>
+##contig=<ID=chr14,length=107349540>
+##contig=<ID=chr15,length=102531392>
+##contig=<ID=chr16,length=90354753>
+##contig=<ID=chr17,length=81195210>
+##contig=<ID=chr18,length=78077248>
+##contig=<ID=chr19,length=59128983>
+##contig=<ID=chr20,length=63025520>
+##contig=<ID=chr21,length=48129895>
+##contig=<ID=chr22,length=51304566>
+##contig=<ID=chrX,length=155270560>
+##contig=<ID=chrY,length=59373566>
+##content=IsaacVariantCaller small-variant calls
+##SnvTheta=0.001
+##IndelTheta=0.0001
+##VariantQualityScoringModel=QSCOREHPOLMODEL
+##bcftools_viewVersion=1.16+htslib-1.16
+##bcftools_viewCommand=view -h 32726314_S5.vcf.gz; Date=Thu Oct 20 07:30:59 2022
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	32726314
+chr1	98039419	rs56038477	C	T	433	PASS	SNVSB=-39.6;SNVHPOL=2;TI=NM_000110;GI=DPYD;FC=Synonymous_E412E;EXON	GT:GQ:GQX:DP:DPF:AD	0/1:466:35:157:13:83,74
